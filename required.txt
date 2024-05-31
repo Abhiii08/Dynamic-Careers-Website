@@ -1,0 +1,6 @@
+Install these first
+Flask
+sqlalchemy
+pymysql
+
+Then you can use the dynamic.sql file to create the database locally using mysql workbench or any other means.
