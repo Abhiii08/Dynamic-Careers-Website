@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine,text
 
-engine = create_engine("mysql+pymysql://avnadmin:AVNS_JXbnUgfE8q_qCnDxl2L@dynamic-db1-dynamic-careers.f.aivencloud.com/dynamic?charset=utf8mb4")
+engine = create_engine("mysql+pymysql://avnadmin:AVNS_JXbnUgfE8q_qCnDxl2L@dynamic-db1-dynamic-careers.f.aivencloud.com/defaultdb?charset=utf8mb4")
 
 def load_jobs():
   with engine.connect() as conn:
