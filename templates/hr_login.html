@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <style>
+            body{
+              background-image: url('static/hr_banner.jpg');
+              background-size: cover; 
+              background-position: center; 
+              background-repeat: no-repeat; 
+              background-attachment: fixed;
+            }
+            .card{
+                opacity:95%;
+            }
+          </style>
+</head>
+
+<body>
+    {% include 'navbar.html'%}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3 heading">Dynamic Careers</h2>
+        <div class="row justify-content-center mt-5" style="padding-bottom:80px; padding-top:10px;">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white text-center">
+                        <h3 class="card-title">HR Login</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/hr_login/access"method="post">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" name="username" placeholder="Enter username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter password" required>
+                            </div>
+                            <div class="text-center">
+                            <button type="submit" class="btn btn-outline-primary ">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% for msg in get_flashed_messages()%}
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                {{msg}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>      
+        {% endfor %}
+    </div>
+    {% include "footer.html" %}
+</body>
+
+</html>

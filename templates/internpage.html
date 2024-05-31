@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-       scale=1.0">
+    <title>{{role.title}} - DynamicCareers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      #banner{
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        opacity:90%;
+      }
+      body{
+        background: rgb(69,65,51);
+background: linear-gradient(0deg, rgba(69,65,51,1) 0%, rgba(0,0,0,1) 85%);
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-attachment: fixed;
+      }
+    </style>
+</head>
+<body>
+  {% include "navbar.html" %}
+  <img src="/static/intern_banner.jpg" class="img-fluid" id="banner">
+  <div class="container">
+    <h2 class="text-center mt-3 mb-4 heading">Dynamic Careers</h2>
+    <div class="mt-3 mb-3 border-bottom row" style="padding-bottom:1px;">
+      <div class="col-11">
+        <h3 style="color:#0096FF;">{{role.title}}</h3>
+        <p class="lead mt-1 mb-1" style="font-style:bold;">{{role.location}}</p>
+        <p class="lead mb-2" style="font-style:bold;">{{role.work_time}}</p>
+      </div>
+      <div class="col-1">
+        <h4>Stipend</h4>
+        <p class="lead mt-1 mb-2">{{role.currency}}{{role.stipend}}</p>
+      </div>
+    </div>
+    <h4>Requirements</h4>
+    <ul>
+      {% for line in role.requirements.split(".") %}
+      <li>{{line}}</li>
+      {% endfor %}
+    </ul>
+    <h4>Responsibilities</h4>
+    <ul>
+      {% for line in role.responsibilites.split(".") %}
+      <li>{{line}}</li>
+      {% endfor %}
+    </ul>
+    {% include 'intern_apply.html' %}
+    {% include 'footer.html' %}
+  </div>  
+</body>
+</html>
